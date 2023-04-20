@@ -59,24 +59,24 @@ void insert_end(int data)
         last = p;
     }
     else
-    {   
-        p->next=last->next;
+    {
+        p->next = last->next;
         last->next = p;
-        last=p;
+        last = p;
     }
 }
 
-int lsize()
-{
-    int s = 0;
-    struct node *temp = last;
-    while (temp->next != last)
-    {
-        temp = temp->next;
-        s++;
-    }
-    return s;
-}
+// int lsize()
+// {
+//     int s = 0;
+//     struct node *temp = last;
+//     while (temp->next != last)
+//     {
+//         temp = temp->next;
+//         s++;
+//     }
+//     return s;
+// }
 
 void insert_giv(int data, int pos)
 {
@@ -84,35 +84,40 @@ void insert_giv(int data, int pos)
     p = (struct node *)malloc(sizeof(struct node));
     p->data = data;
 
-    int size = lsize();
-    if (pos < 0 || pos >= size)
-    {
-        printf("Invalid position to insert\n");
-    }
+    // int size = lsize();
+    // if (pos < 0 || pos >= size)
+    // {
+    //     printf("Invalid position to insert\n");
+    // }
 
-    else
+    // else
+    // {
+    struct node *temp = last->next;
+    while (pos > 0)
     {
-        struct node *temp = last->next;
-        while (pos > 0)
+        temp = temp->next;
+        pos--;
+        if (temp == NULL)
         {
-            temp = temp->next;
-            pos--;
+            printf("Invalid Position");
+            return;
         }
-        p->next = temp->next;
-        temp->next = p;
     }
+    p->next = temp->next;
+    temp->next = p;
+    // }
 }
 void del_end()
 {
     struct node *p, *temp;
     p = last;
     temp = last;
-    while(temp->next!=last)
+    while (temp->next != last)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
     temp->next = last->next;
-    last=temp;
+    last = temp;
     free(p);
 }
 void del_big()
@@ -131,33 +136,38 @@ void del_big()
     {
         struct node *p;
         p = last->next;
-        last->next=p->next;
+        last->next = p->next;
         free(p);
     }
 }
 void del_giv(int pos)
 {
-    int size = lsize();
-    // printf("%d", size);
-    if (pos < 0 || pos >= size)
-    {
-        printf("Invalid position to delete\n");
-    }
+    // int size = lsize();
+    // // printf("%d", size);
+    // if (pos < 0 || pos >= size)
+    // {
+    //     printf("Invalid position to delete\n");
+    // }
 
-    else
+    // else
+    // {
+    struct node *temp = last->next;
+    // struct node *temp = last;
+    struct node *p;
+    while (pos > 0)
     {
-        struct node *temp = last->next;
-        // struct node *temp = last;
-        struct node *p;
-        while (pos > 0)
+        temp = temp->next;
+        pos--;
+        if (temp == NULL)
         {
-            temp = temp->next;
-            pos--;
+            printf("Invalid Position");
+            return;
         }
-        p = temp->next;
-        temp->next = p->next;
-        free(p);
     }
+    p = temp->next;
+    temp->next = p->next;
+    free(p);
+    // }
 }
 
 int main()
@@ -170,7 +180,7 @@ int main()
     insert_giv(4, 2);
     del_big();
     del_end();
-    del_giv(0);//ye 1 se start index last se
+    del_giv(0);
     display();
 
     return 0;
