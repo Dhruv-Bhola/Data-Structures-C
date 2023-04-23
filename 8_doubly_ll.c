@@ -182,6 +182,35 @@ void del_giv(int pos)
     // }
 }
 
+void del_key(int key)
+{
+    struct node *temp = head;
+    struct node *p;
+    if (temp != NULL && temp->data == key)
+    {
+        head = head->next;
+        head->prev=NULL;
+        free(temp);
+        return;
+    }
+
+    while (temp != NULL && temp->data != key)
+    {
+        p = temp;
+        temp = temp->next;
+
+        if (temp == NULL)
+        {
+            return;
+        }
+    }
+
+    p->next = temp->next;
+    temp->prev=NULL;
+    temp->next->prev=p;
+    free(temp);
+}
+
 int main()
 {
     insert_big(2);
@@ -193,6 +222,7 @@ int main()
     del_big();
     del_end();
     del_giv(0);
+    del_key(0);
     display();
 
     return 0;

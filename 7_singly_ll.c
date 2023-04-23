@@ -146,14 +146,6 @@ void del_end()
 }
 void del_giv(int pos)
 {
-    // int size = lsize();
-    // if (pos < 0 || pos >= size)
-    // {
-    //     printf("Invalid position to delete\n");
-    // }
-
-    // else
-    // {
     struct node *temp = head;
     struct node *p;
     while (pos > 0)
@@ -169,7 +161,32 @@ void del_giv(int pos)
     p = temp->next;
     temp->next = p->next;
     free(p);
-    // }
+}
+
+void del_key(int key)
+{
+    struct node *temp = head;
+    struct node *p;
+    if (temp != NULL && temp->data == key)
+    {
+        head = head->next;
+        free(temp);
+        return;
+    }
+
+    while (temp != NULL && temp->data != key)
+    {
+        p = temp;
+        temp = temp->next;
+
+        if (temp == NULL)
+        {
+            return;
+        }
+    }
+
+    p->next = temp->next;
+    free(temp);
 }
 
 int main()
@@ -183,6 +200,7 @@ int main()
     del_big();
     del_end();
     del_giv(0);
+    del_key(4);
     display();
 
     return 0;
