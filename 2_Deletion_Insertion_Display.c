@@ -1,9 +1,9 @@
 #include<stdio.h>
 
 void insertion(int a[]){
-	int j, n, val;
+	int n, val;
 	printf("\nDisplaying Array before insertion: ");
-	for(j=0;j<5;j++){
+	for(int j=0;j<5;j++){
 		printf("%d ",a[j]);
 	}
 	
@@ -13,16 +13,16 @@ void insertion(int a[]){
 	printf("\nEnter value to insert: ");
 	scanf("%d", &val);
 	
-	for(j=6;j>n;j--){
+	for(int j=5;j>=n;j--){
 //		a[6]=0;
 		a[j]=a[j-1];
 	}
 //	a[6]=0;
 	
-	a[n]=val;
+	a[n-1]=val;
 	
 	printf("\nDisplaying Array after insertion: ");
-	for(j=0;j<6;j++){
+	for(int j=0;j<6;j++){
 		printf("%d ",a[j]);
 	}
 }
