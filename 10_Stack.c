@@ -40,7 +40,7 @@ void display()
     {
         for (i = top; i >= 0; i--)
         {
-            printf("%d\n", stack[i]);
+            printf("%d ", stack[i]);
         }
     }
 }
@@ -48,26 +48,37 @@ void display()
 int main()
 {
     int x;
+    do{
     printf("Press 1 for PUSH\n");
     printf("Press 2 for POP\n");
     printf("Press 3 for Display\n");
+    printf("PRESS Any Other Key for Termination\n");
     scanf("%d", &x);
-    if(x==1){
-        int n;
-        printf("Enter Element to push: ");
-        scanf("%d", &n);
-        push(n);
-        printf("\n");
-        main();
+    switch(x){
+        case 1:
+            int n;
+            printf("Enter Element to push: ");
+            scanf("%d", &n);
+            // printf("\n");
+            push(n);
+            printf("\n");
+            break;
+        
+        case 2:
+            pop();
+            //printf("\n");
+            break;
+        
+        case 3:
+            printf("\n");
+            display();
+            printf("\n");
+            break;
+        
+        default:
+            return;
+            // exit(0);
     }
-    else if(x==2){
-        pop();
-        printf("\n");
-        main();
-    }
-    else{
-        printf("\n");
-        display();
-    }
+    }while(1);
     return 0;
 }

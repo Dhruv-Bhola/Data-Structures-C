@@ -191,17 +191,77 @@ void del_key(int key)
 
 int main()
 {
-    insert_big(2);
-    insert_end(3);
-    insert_big(1);
-    insert_end(0);
-    insert_end(5);
-    insert_giv(4, 3);
-    del_big();
-    del_end();
-    del_giv(0);
-    del_key(4);
-    display();
+    int x;
+    printf("Press 1 for Insertion At Beginning\n");
+    printf("Press 2 for Insertion At End\n");
+    printf("Press 3 for Insertion At Given Position\n");
+    printf("Press 4 for Deletion From Beginning\n");
+    printf("Press 5 for Deletion From End\n");
+    printf("Press 6 for Deletion From Given Position\n");
+    printf("Press 7 for Deletion From Given Key\n");
+    printf("Press 8 for Displaying Linked List\n");
+    printf("PRESS Any Other Key for Termination\n");
+    do{
+    scanf("%d", &x);
+    switch(x){
+        case 1:
+            int n;
+            printf("Enter Element to insert: ");
+            scanf("%d", &n);
+            insert_big(n);
+            printf("\n");
+            break;
+        
+        case 2:
+            int n1;
+            printf("Enter Element to insert: ");
+            scanf("%d", &n1);
+            insert_end(n1);
+            printf("\n");
+            break;
+        
+        case 3:
+            int n2, pos;
+            printf("Enter Element to insert: ");
+            scanf("%d", &n2);
+            printf("Enter Element's position: ");
+            scanf("%d", &pos);
+            insert_giv(n2, pos);
+            printf("\n");
+            break;
+
+        case 4:
+            del_big();
+            break;
+        
+        case 5:
+            del_end();
+            break;
+        
+        case 6:
+            int pos1;
+            printf("Enter Element's position: ");
+            scanf("%d", &pos1);
+            del_giv(pos1);
+            break;
+            
+         case 7:
+            int key;
+            printf("Enter Element: ");
+            scanf("%d", &key);
+            del_key(key);
+            break;
+        
+        case 8:
+            display();
+            // printf("\n");
+            break;
+        
+        default:
+            // return;
+            exit(0);
+    }
+    }while(1);
 
     return 0;
 }
