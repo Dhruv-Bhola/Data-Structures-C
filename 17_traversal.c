@@ -63,11 +63,11 @@ struct node *insertRight(struct node *root, int value)
 int main()
 {
     struct node *root = createNode(1);
-    insertLeft(root, 12);
+    insertLeft(root, 1);
     insertRight(root, 9);
 
-    insertLeft(root->left, 5);
-    insertRight(root->left, 6);
+    insertLeft(root->left, 15);
+    insertRight(root->left, 16);
 
     printf("Inorder traversal \n");
     inorderTraversal(root);
