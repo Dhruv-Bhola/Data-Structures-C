@@ -67,17 +67,16 @@ void pop()
 int main()
 {
     int choice, data;
+    printf("------------------------------------\n");
+    printf("    STACK IMPLEMENTATION PROGRAM    \n");
+    printf("------------------------------------\n");
+    printf("1. Push\n");
+    printf("2. Pop\n");
+    printf("3. Display\n");
+    printf("4. Exit\n");
+    printf("------------------------------------\n");
     while (1)
     {
-        /* Menu */
-        printf("------------------------------------\n");
-        printf("    STACK IMPLEMENTATION PROGRAM    \n");
-        printf("------------------------------------\n");
-        printf("1. Push\n");
-        printf("2. Pop\n");
-        printf("3. Display\n");
-        printf("4. Exit\n");
-        printf("------------------------------------\n");
         printf("Enter your choice: ");
 
         scanf("%d", &choice);
