@@ -129,15 +129,15 @@ int main()
 {
     int data, ch;
     struct node *root = NULL;
+    printf("\n1.Insertion");
+    printf("\n2.Searching Element");
+    printf("\n3.Deletion");
+    printf("\n4.Minimum");
+    printf("\n5.Maximum");
+    printf("\n6.Display");
+    printf("\n7.Exit");
     while (1)
-    {
-        printf("\n1.Insertion");
-        printf("\n2.Searching Element");
-        printf("\n3.Deletion");
-        printf("\n4.Minimum");
-        printf("\n5.Maximum");
-        printf("\n6.Display");
-        printf("\n7.Exit");
+    {    
         printf("\nEnter your choice: ");
 
         scanf("%d", &ch);
