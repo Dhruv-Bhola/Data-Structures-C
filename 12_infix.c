@@ -3,6 +3,14 @@
 #include <math.h>
 #include <stdlib.h>
 
+void push(long int symbol);
+long int pop();
+void infix_to_postfix();
+long int eval_post();
+int priority(char symbol);
+int isEmpty();
+int white_space(char);
+
 char infix[50], postfix[50];
 long int stack[50];
 int top;
